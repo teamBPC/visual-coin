@@ -19,7 +19,7 @@ const CoinsList = styled.ul`
 `;
 const Coin = styled.li`
   background-color: ${(props) => props.theme.cardColor};
-  border-radius: 5px;
+  border-radius: 8px;
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.15);
   padding: 0.5rem 1rem;
 `;

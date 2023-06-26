@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { toggle } from "../toggleModeSlice";
 
 const HeaderContainer = styled.div`
   background-color: ${(props) => props.theme.bgColor};
@@ -46,14 +47,19 @@ const ToggleModeBTN = styled.button`
   display: flex;
   line-height: 1.5;
   border: none;
+  cursor: pointer;
 `;
 const MaterialIcon = styled.span`
   color: ${(props) => props.theme.textColor};
 `;
 function Header() {
-  const [mode, setMode] = useState(true);
-  const toggleModeFn = () => {
-    setMode((mode) => !mode);
+  const isDarkMode = useSelector(
+    (state: { toggleMode: boolean }) => state.toggleMode
+  );
+  const dispatch = useDispatch();
+
+  const handleToggle = () => {
+    dispatch(toggle());
   };
   return (
     <HeaderContainer>
@@ -84,14 +90,14 @@ function Header() {
             </OptionLink>
           </OptionItem>
           <OptionItem>
-            <ToggleModeBTN onClick={() => toggleModeFn()}>
-              {mode ? (
+            <ToggleModeBTN onClick={() => handleToggle()}>
+              {isDarkMode ? (
                 <MaterialIcon className="material-symbols-outlined">
-                  light_mode
+                  dark_mode
                 </MaterialIcon>
               ) : (
                 <MaterialIcon className="material-symbols-outlined">
-                  dark_mode
+                  light_mode
                 </MaterialIcon>
               )}
             </ToggleModeBTN>

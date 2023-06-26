@@ -7,7 +7,6 @@ declare global {
     TradingView: any;
   }
 }
-
 export interface IChartData {
   chartData: { data: { time: string; value: number }[] };
 }

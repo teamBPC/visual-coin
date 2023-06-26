@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import ExchangeCharts from "./ExchangeCharts";
 import { initialData } from "../../datalist";
@@ -10,7 +9,7 @@ const CoinExchangeInner = styled.div`
   gap: 1rem;
 `;
 const ExchangeChartContainer = styled.div`
-  background-color: ${(props) => props.theme.boardColor};
+  background-color: ${(props) => props.theme.cardColor};
   border-radius: 12px;
   padding: 1rem;
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.15);
@@ -29,11 +28,9 @@ const ChartInformation = styled.div`
 const ExchangeName = styled.div`
   text-transform: uppercase;
   font-size: 26px;
-  color: #20262e;
 `;
 const SeletedCoin = styled.div`
   font-size: 22px;
-  color: #20262e;
 `;
 function CoinExchange() {
   return (
