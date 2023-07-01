@@ -1,3 +1,11 @@
+export const subscribeData = [{}]
+
+export const userData = {
+  img: "https://blog.kakaocdn.net/dn/bqPYzR/btraWSj02cT/HnIasx6vc09IszobY6Fwe0/img.jpg",
+  email: "qortlgus@naver.com",
+  name: "qortlgus",
+};
+
 export const optionCoins = [
   { value: "Bitcoin", label: "Bitcoin" },
   { value: "Ethereum", label: "Ethereum" },

@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import { toggle } from "../toggleModeSlice";
-import SelectBar from "./SelectBar/SelectBar";
+import { toggle } from "../../toggleModeSlice";
+import SelectBar from "../selectbar/SelectBar";
 
 const HeaderContainer = styled.div`
   background-color: ${(props) => props.theme.bgColor};
@@ -106,7 +106,7 @@ function Header() {
               </ToggleModeBTN>
             </OptionItem>
             <OptionItem>
-              <OptionLink to="/mypage">
+              <OptionLink to="/my-page">
                 <MaterialIcon className="material-symbols-outlined">
                   account_circle
                 </MaterialIcon>

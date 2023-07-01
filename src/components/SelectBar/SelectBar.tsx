@@ -15,6 +15,8 @@ function SelectBar() {
       <SelectBarInner>
         {pathname === "/" && <SelectExchange />}
         {pathname === "/coin-detail" && <SelectCoinDetail />}
+        {pathname === "/my-page/my-invest" && <SelectExchange />}
+        {pathname === "/my-page/my-subscribe" && <SelectCoinDetail />}
       </SelectBarInner>
     </SelectBarContainer>
   );

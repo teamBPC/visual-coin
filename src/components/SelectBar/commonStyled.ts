@@ -16,8 +16,8 @@ export const Select = styled.select`
   padding: 0.39rem;
   outline: none;
   /* border: 1px solid ${(props) => props.theme.memberTabBdColor}; */
-  border-radius: 15px;
-  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.15);
+  border-radius: 7px;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.15);
   color: ${(props) => props.theme.textColor};
   background-color: ${(props) => props.theme.cardColor};
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -32,8 +32,6 @@ export const Select = styled.select`
 `;
 export const Option = styled.option`
   font-weight: bold;
-  border-radius: 13px;
-  padding: 50px;
 `;
 export const SelectBtn = styled.button`
   text-transform: capitalize;
@@ -42,12 +40,12 @@ export const SelectBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.4rem 0.6rem;
+  padding: 0.45rem 0.6rem;
   background-color: ${(props) => props.theme.cardColor};
   outline: none;
   /* border: 1px solid ${(props) => props.theme.memberTabBdColor}; */
-  border-radius: 13px;
-  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.15);
   cursor: pointer;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   &:hover {
