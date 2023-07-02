@@ -33,29 +33,16 @@ const renderFilterButton = (
     </SelectWrapperLi>
   );
 };
-function SelectCoinDetail() {
-  const [subscriptionListFilter, setSubscriptionListFilter] = useState(0);
+function SelectMyPageInvest() {
   const [nameFilter, setNameFilter] = useState(0);
-  const [priceFilter, setPriceFilter] = useState(0);
   const [changeFilter, setChangeFilter] = useState(0);
-  const [marketcapFilter, setMarketcapFilter] = useState(0);
 
-  const handleToggleSubscriptionFilter = () => {
-    setSubscriptionListFilter((choices) => (choices === 1 ? 0 : choices + 1));
-  };
   const handleToggleNameFilter = () => {
     setNameFilter((choices) => (choices === 2 ? 0 : choices + 1));
-  };
-  const handleTogglePriceFilter = () => {
-    setPriceFilter((choices) => (choices === 2 ? 0 : choices + 1));
   };
   const handleToggleChangeFilter = () => {
     setChangeFilter((choices) => (choices === 2 ? 0 : choices + 1));
   };
-  const handleTogglemMarketcapFilter = () => {
-    setMarketcapFilter((choices) => (choices === 2 ? 0 : choices + 1));
-  };
-
   return (
     <SelectWrapperUl>
       <SelectWrapperLi>
@@ -76,28 +63,10 @@ function SelectCoinDetail() {
           ))}
         </Select>
       </SelectWrapperLi>
-      <SelectWrapperLi>
-        <FilterBtn
-          onClick={() => handleToggleSubscriptionFilter()}
-          filterNum={subscriptionListFilter}
-        >
-          <span>subscription List</span>
-        </FilterBtn>
-      </SelectWrapperLi>
       {renderFilterButton("name", nameFilter, handleToggleNameFilter)}
-      {renderFilterButton("price", priceFilter, handleTogglePriceFilter)}
-      {renderFilterButton(
-        "amount of change",
-        changeFilter,
-        handleToggleChangeFilter
-      )}
-      {renderFilterButton(
-        "market cap",
-        marketcapFilter,
-        handleTogglemMarketcapFilter
-      )}
+      {renderFilterButton("change", changeFilter, handleToggleChangeFilter)}
     </SelectWrapperUl>
   );
 }
 
-export default SelectCoinDetail;
+export default SelectMyPageInvest;

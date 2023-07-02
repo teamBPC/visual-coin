@@ -7,6 +7,7 @@ export const SelectWrapperUl = styled.ul`
 `;
 export const SelectWrapperLi = styled.li`
   display: flex;
+
   align-items: center;
   position: relative;
 `;
@@ -15,7 +16,6 @@ export const Select = styled.select`
   letter-spacing: 0.5px;
   padding: 0.39rem;
   outline: none;
-  /* border: 1px solid ${(props) => props.theme.memberTabBdColor}; */
   border-radius: 7px;
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.15);
   color: ${(props) => props.theme.textColor};
@@ -33,17 +33,18 @@ export const Select = styled.select`
 export const Option = styled.option`
   font-weight: bold;
 `;
-export const SelectBtn = styled.button`
-  text-transform: capitalize;
+export const FilterBtn = styled.button<{ filterNum: number }>`
   font-weight: bold;
+  text-transform: capitalize;
   letter-spacing: 0.5px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0.45rem 0.6rem;
-  background-color: ${(props) => props.theme.cardColor};
+  background-color: ${(props) =>
+    props.filterNum === 0 ? props.theme.cardColor : props.theme.btnBgColor};
+  color: ${(props) => props.filterNum !== 0 && props.theme.btnTextColor};
   outline: none;
-  /* border: 1px solid ${(props) => props.theme.memberTabBdColor}; */
   border-radius: 6px;
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.15);
   cursor: pointer;
@@ -51,4 +52,8 @@ export const SelectBtn = styled.button`
   &:hover {
     background-color: ${(props) => props.theme.btnHoberBgColor};
   }
+`;
+export const MaterialIcon = styled.span`
+  font-size: 16px;
+  vertical-align: bottom;
 `;

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import ExchangeCharts from "./ExchangeCharts";
-import { initialData } from "../../datalist";
+import { fetchEchangeChart } from "../../datalist";
+import { useQuery } from "@tanstack/react-query";
+import { IExchangeChart } from "../../interface/iExchangeChart";
 
 const CoinExchangeContainer = styled.div``;
 const CoinExchangeInner = styled.div`
@@ -33,27 +35,33 @@ const SeletedCoin = styled.div`
   font-size: 22px;
 `;
 function CoinExchange() {
+  const { data: exchangeChartData } = useQuery<IExchangeChart[]>(
+    ["echangeChart"],
+    fetchEchangeChart
+  );
+
   return (
     <CoinExchangeContainer>
       <CoinExchangeInner>
-        {initialData.map((item, index) => (
-          <ExchangeChartContainer>
-            <ExchangeChartInner>
-              <ExchangeChartHeader>
-                <ChartInformation>
-                  <ExchangeName>{item.exchange}</ExchangeName>
-                  <SeletedCoin>BitCoin</SeletedCoin>
-                </ChartInformation>
-              </ExchangeChartHeader>
-              <ExchangeCharts
-                key={index}
-                chartData={{
-                  data: item.history,
-                }}
-              />
-            </ExchangeChartInner>
-          </ExchangeChartContainer>
-        ))}
+        {exchangeChartData &&
+          exchangeChartData.map((item, index) => (
+            <ExchangeChartContainer>
+              <ExchangeChartInner>
+                <ExchangeChartHeader>
+                  <ChartInformation>
+                    <ExchangeName>{item.exchange}</ExchangeName>
+                    <SeletedCoin>BitCoin</SeletedCoin>
+                  </ChartInformation>
+                </ExchangeChartHeader>
+                <ExchangeCharts
+                  key={index}
+                  chartData={{
+                    data: item.history,
+                  }}
+                />
+              </ExchangeChartInner>
+            </ExchangeChartContainer>
+          ))}
       </CoinExchangeInner>
     </CoinExchangeContainer>
   );

@@ -17,14 +17,14 @@ export const optionCoins = [
   { value: "Dogecoin", label: "Dogecoin" },
 ];
 export const optionTimer = [
-  { value: "1분", label: "1분" },
-  { value: "3분", label: "3분" },
-  { value: "5분", label: "5분" },
-  { value: "15분", label: "15분" },
-  { value: "30분", label: "30분" },
-  { value: "1시간", label: "1시간" },
-  { value: "4시간", label: "4시간" },
-  { value: "24시간", label: "24시간" },
+  { value: "1", label: "1분" },
+  { value: "3", label: "3분" },
+  { value: "5", label: "5분" },
+  { value: "15", label: "15분" },
+  { value: "10", label: "10분" },
+  { value: "30", label: "1시간" },
+  { value: "60", label: "4시간" },
+  { value: "240", label: "24시간" },
 ];
 export const optionCategory = [
   { value: "Category", label: "카테고리" },
@@ -176,7 +176,7 @@ export const chartdata = [
   { open: 10.75, high: 11.6, low: 10.49, close: 10.93, time: 1643119076 },
   { open: 10.93, high: 11.53, low: 10.76, close: 10.96, time: 1643205476 },
 ];
-export const initialData = [
+export const exchangeChartData = [
   {
     exchange: "upbit",
     history: [
@@ -1110,5 +1110,10 @@ export const initialData = [
 ];
 export async function fetchCoins() {
   const response = await fetch(`https://api.coinpaprika.com/v1/coins`);
+  return await response.json();
+}
+
+export async function fetchEchangeChart() {
+  const response = await fetch(``);
   return await response.json();
 }

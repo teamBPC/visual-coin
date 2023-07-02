@@ -5,19 +5,10 @@ import {
   SelectWrapperUl,
   SelectWrapperLi,
   Option,
-  SelectBtn,
+  MaterialIcon,
+  FilterBtn,
 } from "./commonStyled";
-import styled from "styled-components";
 
-const FilterBtn = styled(SelectBtn)<{ filterNum: number }>`
-  background-color: ${(props) =>
-    props.filterNum !== 0 && props.theme.btnBgColor};
-  color: ${(props) => props.filterNum !== 0 && props.theme.btnTextColor};
-`;
-const MaterialIcon = styled.span`
-  font-size: 16px;
-  vertical-align: bottom;
-`;
 const renderFilterButton = (
   label: string,
   filter: number,

@@ -2,7 +2,6 @@ import styled from "styled-components";
 import SelectBar from "../../components/selectbar/SelectBar";
 import { userData } from "../../datalist";
 import { Link, useMatch } from "react-router-dom";
-import { useEffect, useState } from "react";
 
 const MypageContainer = styled.div``;
 const MypageInner = styled.div`
@@ -10,7 +9,7 @@ const MypageInner = styled.div`
   flex-direction: column;
 `;
 const ProfileBox = styled.div`
-  background-color: ${(props) => props.theme.boardColor};
+  background-color: ${(props) => props.theme.cardColor};
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.15);
   padding: 2rem;
   border-radius: 13px;
