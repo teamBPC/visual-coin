@@ -1,12 +1,7 @@
-import { TreeMap } from "reaviz";
-import { mapdata } from "../../datalist";
+import { useRef, useEffect } from "react";
+import * as d3 from "d3";
 
 function CoinMap() {
-  return (
-    <div>
-      <TreeMap data={mapdata} width={500} height={500} />
-    </div>
-  );
+  return <div></div>;
 }
-
 export default CoinMap;

@@ -1,9 +1,168 @@
-export const mapdata = [
-  { key: "AWS", data: 100 },
-  { key: "SendGrid", data: 45 },
-  { key: "Okta", data: 75 },
-  { key: "Twillo", data: 25 },
+export const subscribeData = [{}]
+
+export const userData = {
+  img: "https://blog.kakaocdn.net/dn/bqPYzR/btraWSj02cT/HnIasx6vc09IszobY6Fwe0/img.jpg",
+  email: "qortlgus@naver.com",
+  name: "qortlgus",
+};
+
+export const optionCoins = [
+  { value: "Bitcoin", label: "Bitcoin" },
+  { value: "Ethereum", label: "Ethereum" },
+  { value: "Tether", label: "Tether" },
+  { value: "BNB", label: "BNB" },
+  { value: "USD Coin", label: "USD Coin" },
+  { value: "XRP", label: "XRP" },
+  { value: "Cardano", label: "Cardano" },
+  { value: "Dogecoin", label: "Dogecoin" },
 ];
+export const optionTimer = [
+  { value: "1", label: "1분" },
+  { value: "3", label: "3분" },
+  { value: "5", label: "5분" },
+  { value: "15", label: "15분" },
+  { value: "10", label: "10분" },
+  { value: "30", label: "1시간" },
+  { value: "60", label: "4시간" },
+  { value: "240", label: "24시간" },
+];
+export const optionCategory = [
+  { value: "Category", label: "카테고리" },
+  { value: "platform", label: "플랫폼" },
+  { value: "game market", label: "게임시장" },
+  { value: "authentication service", label: "인증 서비스" },
+  { value: "data storage service", label: "데이터저장 서비스" },
+  { value: "Computing Power Rental Service", label: "연산력 임대 서비스" },
+  { value: "decentralized exchange", label: "분산화거래소" },
+  { value: "social networking", label: "소셜네트워킹" },
+  { value: "SNS content", label: "SNS 컨텐츠" },
+  { value: "advertising industry", label: "광고산업" },
+  { value: "Content production and mediation", label: "컨텐츠 생산 및 중개" },
+  { value: "Simple payment platform", label: "간편결제 플랫폼" },
+  { value: "bitcoin group", label: "비트코인 그룹" },
+  { value: "Ethereum group", label: "이더리움 그룹" },
+  { value: "DeFi Index", label: "디파이 인덱스" },
+  { value: "Non-Fungible Token", label: "대체불가능 토큰" },
+  { value: "oracle", label: "오라클" },
+  { value: "iot", label: "아이오티" },
+  { value: "smart contract", label: "스마트컨트랙" },
+];
+export const optionExchange = [
+  { value: "Binance", label: "Binance" },
+  { value: "BinanceUS", label: "BinanceUS" },
+  { value: "OKX", label: "OKX" },
+  { value: "UpBit", label: "UpBit" },
+  { value: "Bitget", label: "Bitget" },
+  { value: "Bithumb", label: "Bithumb" },
+  { value: "Uniswap", label: "Uniswap" },
+  { value: "OKCoin", label: "OKCoin" },
+];
+
+export const mapdata = {
+  name: "Celtics",
+  children: [
+    {
+      name: "Guards",
+      children: [
+        {
+          category: "Guards",
+          name: "Kemba Walker",
+          value: 20.4,
+        },
+        {
+          category: "Guards",
+          name: "Marcus Smart",
+          value: 12.9,
+        },
+        {
+          category: "Guards",
+          name: "Brad Wanamaker",
+          value: 6.9,
+        },
+        {
+          category: "Guards",
+          name: "Tremont Waters",
+          value: 3.6,
+        },
+        {
+          category: "Guards",
+          name: "Carsen Edwards",
+          value: 3.3,
+        },
+        {
+          category: "Guards",
+          name: "Romeo Langford",
+          value: 2.5,
+        },
+      ],
+    },
+    {
+      name: "Forwards",
+      children: [
+        {
+          category: "Forwards",
+          name: "Jayson Tatum",
+          value: 23.4,
+        },
+        {
+          category: "Forwards",
+          name: "Jaylen Brown",
+          value: 20.3,
+        },
+        {
+          category: "Forwards",
+          name: "Gordon Hayward",
+          value: 17.5,
+        },
+        {
+          category: "Forwards",
+          name: "Grant Williams",
+          value: 3.4,
+        },
+        {
+          category: "Forwards",
+          name: "Javonte Green",
+          value: 3.4,
+        },
+        {
+          category: "Forwards",
+          name: "Semi Ojeleye",
+          value: 3.4,
+        },
+        {
+          category: "Forwards",
+          name: "Vincent Poirier",
+          value: 1.9,
+        },
+      ],
+    },
+    {
+      name: "Centers",
+      children: [
+        {
+          category: "Centers",
+          name: "Daniel Theis",
+          value: 9.2,
+        },
+        {
+          category: "Centers",
+          name: "Enes Kanter",
+          value: 8.1,
+        },
+        {
+          category: "Centers",
+          name: "Robert Williams III",
+          value: 5.2,
+        },
+        {
+          category: "Centers",
+          name: "Tacko Fall",
+          value: 3.3,
+        },
+      ],
+    },
+  ],
+};
 
 export const chartdata = [
   { open: 10, high: 10.63, low: 9.49, close: 9.55, time: 1642427876 },
@@ -17,7 +176,7 @@ export const chartdata = [
   { open: 10.75, high: 11.6, low: 10.49, close: 10.93, time: 1643119076 },
   { open: 10.93, high: 11.53, low: 10.76, close: 10.96, time: 1643205476 },
 ];
-export const initialData = [
+export const exchangeChartData = [
   {
     exchange: "upbit",
     history: [
@@ -951,5 +1110,10 @@ export const initialData = [
 ];
 export async function fetchCoins() {
   const response = await fetch(`https://api.coinpaprika.com/v1/coins`);
+  return await response.json();
+}
+
+export async function fetchEchangeChart() {
+  const response = await fetch(``);
   return await response.json();
 }
