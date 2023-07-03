@@ -1,7 +1,9 @@
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import { darkTheme, lightTheme } from "./theme";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Router from "./Router";
+import { useRef, useLayoutEffect, useEffect } from "react";
+import { width } from "./viewWidthSlice";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -96,11 +98,32 @@ function App() {
   const isDarkMode = useSelector(
     (state: { toggleMode: boolean }) => state.toggleMode
   );
+  const appRef = useRef<HTMLDivElement>(null);
+  const dispatch = useDispatch();
+
+  useLayoutEffect(() => {
+    if (appRef.current) {
+      dispatch(width(appRef.current.offsetWidth));
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (appRef.current) {
+        dispatch(width(appRef.current.offsetWidth));
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [appRef, dispatch]);
+
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <GlobalStyle />
       <AppContainer>
-        <AppInner>
+        <AppInner ref={appRef}>
           <Router />
         </AppInner>
       </AppContainer>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import SelectBar from "../../components/selectbar/SelectBar";
 import { userData } from "../../datalist";
-import { Link, useMatch } from "react-router-dom";
+import { Link, Outlet, useMatch } from "react-router-dom";
 
 const MypageContainer = styled.div``;
 const MypageInner = styled.div`
@@ -74,7 +74,6 @@ const TabLink = styled(Link)<{ isActive: boolean }>`
   background-color: ${(props) =>
     props.isActive ? props.theme.btnBgColor : props.theme.cardColor};
   color: ${(props) => props.isActive && props.theme.btnTextColor};
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   &:hover {
     background-color: ${(props) => props.theme.btnHoberBgColor};
   }
@@ -135,7 +134,7 @@ function Mypage() {
           <SelectBar />
         </SelectBox>
         <ContentsBox>
-          <div></div>
+          <Outlet />
         </ContentsBox>
       </MypageInner>
     </MypageContainer>
