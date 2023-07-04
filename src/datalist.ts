@@ -171,7 +171,7 @@ export const optionExchange = [
   { value: "Uniswap", label: "Uniswap" },
   { value: "OKCoin", label: "OKCoin" },
 ];
-export const mapdata = [
+export const mapsData = [
   {
     key: "BINANCE",
     data: [

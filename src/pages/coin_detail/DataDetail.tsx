@@ -14,7 +14,6 @@ function DataDetail() {
     (state: { toggleMode: boolean }) => state.toggleMode
   );
   const { pathname } = useLocation();
-  console.log();
   let tvScriptLoadingPromise: Promise<void>;
   const onLoadScriptRef = useRef<(() => void) | null>();
 
@@ -49,7 +48,7 @@ function DataDetail() {
     ) {
       new window.TradingView.widget({
         autosize: true,
-        symbol: pathname.slice(1),
+        symbol: pathname.slice(13),
         interval: "D",
         timezone: "Asia/Seoul",
         theme: isDarkMode ? "dark" : "light",

@@ -1,8 +1,9 @@
 import { TreeMap, TreeMapSeries, TreeMapRect, TreeMapLabel } from "reaviz";
-import { mapdata } from "../../datalist";
+import { mapsData } from "../../datalist";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { navCoinDetail, navMapDetail } from "./common/navigateFn";
 
 const CoinMapContainer = styled.div``;
 const CoinMapInner = styled.div``;
@@ -12,29 +13,14 @@ function CoinMap() {
     (state: { viewWidth: number }) => state.viewWidth
   );
   const navigate = useNavigate();
-  const moveDetail = (data: {
-    data: {
-      key: string;
-      data: number;
-      symbol: string;
-      unit: string;
-    };
-    parent: { data: { key: string } };
-  }) => {
-    const coinid =
-      data.parent.data.key.toUpperCase() +
-      ":" +
-      data.data.symbol +
-      data.data.unit;
-    navigate(`/${coinid}`);
-  };
+
   return (
     <CoinMapContainer>
       <CoinMapInner>
         <TreeMap
           width={viewWidth - 16}
           height={viewWidth * 0.7}
-          data={mapdata}
+          data={mapsData}
           series={
             <TreeMapSeries
               label={
@@ -55,7 +41,12 @@ function CoinMap() {
                     // console.log("onMouseLeave", event, data);
                   }}
                   onClick={(event, data) => {
-                    moveDetail(data);
+                    if (data.depth === 1) {
+                      navMapDetail(data, navigate);
+                    }
+                    if (data.depth === 2) {
+                      navCoinDetail(data, navigate);
+                    }
                   }}
                 />
               }
