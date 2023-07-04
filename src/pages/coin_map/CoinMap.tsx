@@ -34,6 +34,7 @@ function CoinMap() {
               rect={
                 <TreeMapRect
                   tooltip={<></>}
+                  animated={false}
                   onMouseEnter={(event, data) => {
                     // console.log("onMouseEnter", event, data);
                   }}

@@ -15,6 +15,7 @@ const MySubscribeItem = styled.div`
   padding: 2rem;
   border-radius: 10px;
   background-color: ${(props) => props.theme.cardColor};
+  will-change: background-color;
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.15);
 `;
 const ItemTop = styled.div`
@@ -42,6 +43,7 @@ const Change = styled.div<{ change: string }>`
       : props.change === "FALL"
       ? "#1261c4"
       : "#222"};
+  will-change: color;
 `;
 const MaterialIcons = styled.span`
   vertical-align: middle;
