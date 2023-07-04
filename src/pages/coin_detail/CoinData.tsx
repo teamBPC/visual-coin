@@ -48,7 +48,7 @@ function CoinData() {
           <CoinsList>
             {data?.slice(0, 100).map((coin) => (
               <Coin key={coin.id}>
-                <GoDetail to={`/${coin.id}`} state={{ name: coin.name }}>
+                <GoDetail to={`/BINANCE:${coin.symbol}USDT`}>
                   <Img
                     src={`https://cryptocurrencyliveprices.com/img/${coin.id}.png`}
                   />
