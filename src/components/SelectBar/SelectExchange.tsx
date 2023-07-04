@@ -1,82 +1,36 @@
-import { useState } from "react";
-import { optionCoins, optionTimer } from "../../datalist";
-import {
-  Select,
-  SelectWrapperUl,
-  SelectWrapperLi,
-  Option,
-  MaterialIcon,
-  FilterBtn,
-} from "./commonStyled";
+import { SelectWrapperUl, SelectWrapperLi } from "./common/commonItem";
+import FilterExchange from "./common/FilterExchange";
+import FilterCategory from "./common/FilterCategory";
+import FilterSubscription from "./common/FilterSubscription";
+import FilterName from "./common/FliterName";
+import FilterPrice from "./common/FilterPrice";
+import FilterMarketCap from "./common/FilterMarketCap";
+import FilterChange from "./common/FilterChange";
 
-const renderFilterButton = (
-  label: string,
-  filter: number,
-  handleToggleFn: { (): void }
-) => {
-  return (
-    <SelectWrapperLi>
-      <FilterBtn onClick={() => handleToggleFn()} filterNum={filter}>
-        <span>{label}</span>
-        {filter === 1 ? (
-          <MaterialIcon className="material-symbols-outlined">
-            arrow_drop_down
-          </MaterialIcon>
-        ) : filter === 2 ? (
-          <MaterialIcon className="material-symbols-outlined">
-            arrow_drop_up
-          </MaterialIcon>
-        ) : (
-          <></>
-        )}
-      </FilterBtn>
-    </SelectWrapperLi>
-  );
-};
 function SelectExchange() {
-  const [subscriptionListFilter, setSubscriptionListFilter] = useState(0);
-  const [nameFilter, setNameFilter] = useState(0);
-  const [priceFilter, setPriceFilter] = useState(0);
-
-  const handleToggleSubscriptionFilter = () => {
-    setSubscriptionListFilter((choices) => (choices === 1 ? 0 : choices + 1));
-  };
-  const handleToggleNameFilter = () => {
-    setNameFilter((choices) => (choices === 2 ? 0 : choices + 1));
-  };
-  const handleTogglePriceFilter = () => {
-    setPriceFilter((choices) => (choices === 2 ? 0 : choices + 1));
-  };
   return (
     <SelectWrapperUl>
       <SelectWrapperLi>
-        <Select defaultValue={optionCoins[0].value}>
-          {optionCoins.map((list) => (
-            <Option key={list.value} value={list.label}>
-              {list.label}
-            </Option>
-          ))}
-        </Select>
+        <FilterExchange />
       </SelectWrapperLi>
       <SelectWrapperLi>
-        <Select defaultValue={optionTimer[7].value}>
-          {optionTimer.map((list) => (
-            <Option key={list.value} value={list.label}>
-              {list.label}
-            </Option>
-          ))}
-        </Select>
+        <FilterCategory />
       </SelectWrapperLi>
       <SelectWrapperLi>
-        <FilterBtn
-          onClick={() => handleToggleSubscriptionFilter()}
-          filterNum={subscriptionListFilter}
-        >
-          <span>subscription List</span>
-        </FilterBtn>
+        <FilterSubscription />
       </SelectWrapperLi>
-      {renderFilterButton("name", nameFilter, handleToggleNameFilter)}
-      {renderFilterButton("price", priceFilter, handleTogglePriceFilter)}
+      <SelectWrapperLi>
+        <FilterChange />
+      </SelectWrapperLi>
+      <SelectWrapperLi>
+        <FilterName />
+      </SelectWrapperLi>
+      <SelectWrapperLi>
+        <FilterPrice />
+      </SelectWrapperLi>
+      <SelectWrapperLi>
+        <FilterMarketCap />
+      </SelectWrapperLi>
     </SelectWrapperUl>
   );
 }

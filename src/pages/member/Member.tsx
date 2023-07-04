@@ -32,7 +32,7 @@ const ActiveBox = styled.div<{ isActive: boolean }>`
   border-bottom: 2px solid ${(props) => props.theme.memberActiveBoxBgColor};
   transform: translateX(${(props) => (props.isActive ? "0" : "100%")});
   transition: transform 0.2s ease-in-out;
-  /* box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); */
+  will-change: transform, border;
 `;
 const Tab = styled.div<{ isActive: boolean }>`
   text-align: center;
@@ -41,7 +41,7 @@ const Tab = styled.div<{ isActive: boolean }>`
   border-bottom: 2px solid ${(props) => props.theme.memberTabBdColor};
   color: ${(props) =>
     props.isActive ? props.theme.textColor : props.theme.memberTabTextColor};
-  transition: color 0.2s ease-in-out;
+  will-change: color, border;
 `;
 
 const TabLink = styled(Link)`

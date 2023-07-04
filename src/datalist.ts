@@ -1,11 +1,125 @@
-export const subscribeData = [{}]
-
+export const myPageSubscribeData = [
+  {
+    exchange: "Binance",
+    coin: "Bitcion",
+    price: 50000000,
+    change: "RISE",
+    changeRate: 0.5,
+  },
+  {
+    exchange: "Binance",
+    coin: "Bitcion",
+    price: 50000000,
+    change: "RISE",
+    changeRate: 5,
+  },
+  {
+    exchange: "Binance",
+    coin: "Bitcion",
+    price: 50000000,
+    change: "RISE",
+    changeRate: 3,
+  },
+  {
+    exchange: "Binance",
+    coin: "Bitcion",
+    price: 50000000,
+    change: "EVEN",
+    changeRate: 0,
+  },
+  {
+    exchange: "Binance",
+    coin: "Bitcion",
+    price: 50000000,
+    change: "FALL",
+    changeRate: 23,
+  },
+  {
+    exchange: "Binance",
+    coin: "Bitcion",
+    price: 50000000,
+    change: "RISE",
+    changeRate: 1,
+  },
+  {
+    exchange: "Binance",
+    coin: "Bitcion",
+    price: 50000000,
+    change: "RISE",
+    changeRate: 203,
+  },
+  {
+    exchange: "Binance",
+    coin: "Bitcion",
+    price: 50000000,
+    change: "FALL",
+    changeRate: 12,
+  },
+];
+export const myPageInvestData = [
+  {
+    exchange: "Binance",
+    coin: "Bitcion",
+    price: 50000000,
+    change: "RISE",
+    changeRate: 0.5,
+  },
+  {
+    exchange: "Binance",
+    coin: "Bitcion",
+    price: 50000000,
+    change: "RISE",
+    changeRate: 5,
+  },
+  {
+    exchange: "Binance",
+    coin: "Bitcion",
+    price: 50000000,
+    change: "RISE",
+    changeRate: 3,
+  },
+  {
+    exchange: "Binance",
+    coin: "Bitcion",
+    price: 50000000,
+    change: "EVEN",
+    changeRate: 0,
+  },
+  {
+    exchange: "Binance",
+    coin: "Bitcion",
+    price: 50000000,
+    change: "FALL",
+    changeRate: 23,
+  },
+  {
+    exchange: "Binance",
+    coin: "Bitcion",
+    price: 50000000,
+    change: "RISE",
+    changeRate: 1,
+  },
+  {
+    exchange: "Binance",
+    coin: "Bitcion",
+    price: 50000000,
+    change: "RISE",
+    changeRate: 203,
+  },
+  {
+    exchange: "Binance",
+    coin: "Bitcion",
+    price: 50000000,
+    change: "FALL",
+    changeRate: 12,
+  },
+];
 export const userData = {
-  img: "https://blog.kakaocdn.net/dn/bqPYzR/btraWSj02cT/HnIasx6vc09IszobY6Fwe0/img.jpg",
+  img:
+    "https://blog.kakaocdn.net/dn/bqPYzR/btraWSj02cT/HnIasx6vc09IszobY6Fwe0/img.jpg",
   email: "qortlgus@naver.com",
   name: "qortlgus",
 };
-
 export const optionCoins = [
   { value: "Bitcoin", label: "Bitcoin" },
   { value: "Ethereum", label: "Ethereum" },
@@ -57,112 +171,39 @@ export const optionExchange = [
   { value: "Uniswap", label: "Uniswap" },
   { value: "OKCoin", label: "OKCoin" },
 ];
-
-export const mapdata = {
-  name: "Celtics",
-  children: [
-    {
-      name: "Guards",
-      children: [
-        {
-          category: "Guards",
-          name: "Kemba Walker",
-          value: 20.4,
-        },
-        {
-          category: "Guards",
-          name: "Marcus Smart",
-          value: 12.9,
-        },
-        {
-          category: "Guards",
-          name: "Brad Wanamaker",
-          value: 6.9,
-        },
-        {
-          category: "Guards",
-          name: "Tremont Waters",
-          value: 3.6,
-        },
-        {
-          category: "Guards",
-          name: "Carsen Edwards",
-          value: 3.3,
-        },
-        {
-          category: "Guards",
-          name: "Romeo Langford",
-          value: 2.5,
-        },
-      ],
-    },
-    {
-      name: "Forwards",
-      children: [
-        {
-          category: "Forwards",
-          name: "Jayson Tatum",
-          value: 23.4,
-        },
-        {
-          category: "Forwards",
-          name: "Jaylen Brown",
-          value: 20.3,
-        },
-        {
-          category: "Forwards",
-          name: "Gordon Hayward",
-          value: 17.5,
-        },
-        {
-          category: "Forwards",
-          name: "Grant Williams",
-          value: 3.4,
-        },
-        {
-          category: "Forwards",
-          name: "Javonte Green",
-          value: 3.4,
-        },
-        {
-          category: "Forwards",
-          name: "Semi Ojeleye",
-          value: 3.4,
-        },
-        {
-          category: "Forwards",
-          name: "Vincent Poirier",
-          value: 1.9,
-        },
-      ],
-    },
-    {
-      name: "Centers",
-      children: [
-        {
-          category: "Centers",
-          name: "Daniel Theis",
-          value: 9.2,
-        },
-        {
-          category: "Centers",
-          name: "Enes Kanter",
-          value: 8.1,
-        },
-        {
-          category: "Centers",
-          name: "Robert Williams III",
-          value: 5.2,
-        },
-        {
-          category: "Centers",
-          name: "Tacko Fall",
-          value: 3.3,
-        },
-      ],
-    },
-  ],
-};
+export const mapsData = [
+  {
+    key: "BINANCE",
+    data: [
+      { key: "Bitcoin", data: 100, symbol: "BTC", unit: "USDT" },
+      { key: "Ethereum", data: 20, symbol: "ETH", unit: "USDT" },
+      { key: "Tether", data: 10, symbol: "USDT", unit: "USDT" },
+      { key: "BNB", data: 5, symbol: "BNB", unit: "USDT" },
+      { key: "XRP", data: 2, symbol: "XRP", unit: "USDT" },
+    ],
+  },
+  {
+    key: "UPBIT",
+    data: [
+      { key: "Bitcoin", data: 100, symbol: "BTC", unit: "KRW" },
+      { key: "Solana", data: 70, symbol: "SOL", unit: "KRW" },
+      { key: "Aave", data: 40, symbol: "AAVE", unit: "KRW" },
+      { key: "Bitcoin Cash", data: 20, symbol: "BCH", unit: "KRW" },
+    ],
+  },
+  {
+    key: "OKX",
+    data: [
+      { key: "Bitcoin", data: 100, symbol: "BTC", unit: "USDT" },
+      { key: "Ethereum", data: 70, symbol: "ETH", unit: "USDT" },
+      { key: "Filecoin", data: 40, symbol: "FIL", unit: "USDT" },
+      { key: "EOS", data: 20, symbol: "EOS", unit: "USDT" },
+      { key: "Cardano", data: 80, symbol: "ADA", unit: "USDT" },
+      { key: "Dogecoin", data: 60, symbol: "DOGE", unit: "USDT" },
+      { key: "Flow", data: 40, symbol: "FLOW", unit: "USDT" },
+    ],
+  },
+];
 
 export const chartdata = [
   { open: 10, high: 10.63, low: 9.49, close: 9.55, time: 1642427876 },
@@ -1113,7 +1154,7 @@ export async function fetchCoins() {
   return await response.json();
 }
 
-export async function fetchEchangeChart() {
+export async function fetchExchangeChart() {
   const response = await fetch(``);
   return await response.json();
 }

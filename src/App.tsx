@@ -1,7 +1,9 @@
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import { darkTheme, lightTheme } from "./theme";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Router from "./Router";
+import { useRef, useLayoutEffect, useEffect } from "react";
+import { width } from "./redux/viewWidthSlice";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -39,20 +41,24 @@ body {
   padding: 0;
 	color: ${(props) => props.theme.textColor};
   width: 100%;
+  will-change: background-color, color;
 }
 label{
   color : ${(props) => props.theme.labelColor};
+  will-change: color;
 }
 input{
   background-color: ${(props) => props.theme.cardColor};
   border: 1px solid ${(props) => props.theme.inputBdColor};
   color: ${(props) => props.theme.inputTextColor};
+  will-change: background-color,border, color;
 }
 select, button{  
   font-family: "Pretendard",sans-serif;
   background-color: ${(props) => props.theme.btnBgColor};
   color: ${(props) => props.theme.textColor};
   border:none;
+  will-change: background-color, color;
 }
 option {
   font-family: "Pretendard",sans-serif;
@@ -96,11 +102,32 @@ function App() {
   const isDarkMode = useSelector(
     (state: { toggleMode: boolean }) => state.toggleMode
   );
+  const appRef = useRef<HTMLDivElement>(null);
+  const dispatch = useDispatch();
+
+  useLayoutEffect(() => {
+    if (appRef.current) {
+      dispatch(width(appRef.current.offsetWidth));
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (appRef.current) {
+        dispatch(width(appRef.current.offsetWidth));
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [appRef, dispatch]);
+
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <GlobalStyle />
       <AppContainer>
-        <AppInner>
+        <AppInner ref={appRef}>
           <Router />
         </AppInner>
       </AppContainer>

@@ -7,7 +7,6 @@ export const SelectWrapperUl = styled.ul`
 `;
 export const SelectWrapperLi = styled.li`
   display: flex;
-
   align-items: center;
   position: relative;
 `;
@@ -20,7 +19,7 @@ export const Select = styled.select`
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.15);
   color: ${(props) => props.theme.textColor};
   background-color: ${(props) => props.theme.cardColor};
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  will-change: background-color, color;
   &:focus {
     background-color: ${(props) => props.theme.btnBgColor};
     color: ${(props) => props.theme.btnTextColor};
@@ -44,11 +43,11 @@ export const FilterBtn = styled.button<{ filterNum: number }>`
   background-color: ${(props) =>
     props.filterNum === 0 ? props.theme.cardColor : props.theme.btnBgColor};
   color: ${(props) => props.filterNum !== 0 && props.theme.btnTextColor};
+  will-change: background-color, color;
   outline: none;
   border-radius: 6px;
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.15);
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   &:hover {
     background-color: ${(props) => props.theme.btnHoberBgColor};
   }
@@ -57,3 +56,26 @@ export const MaterialIcon = styled.span`
   font-size: 16px;
   vertical-align: bottom;
 `;
+
+export const renderFilterButton = (
+  label: string,
+  filter: number,
+  handleToggleFn: { (): void }
+) => {
+  return (
+    <FilterBtn onClick={() => handleToggleFn()} filterNum={filter}>
+      <span>{label}</span>
+      {filter === 1 ? (
+        <MaterialIcon className="material-symbols-outlined">
+          arrow_drop_down
+        </MaterialIcon>
+      ) : filter === 2 ? (
+        <MaterialIcon className="material-symbols-outlined">
+          arrow_drop_up
+        </MaterialIcon>
+      ) : (
+        <></>
+      )}
+    </FilterBtn>
+  );
+};

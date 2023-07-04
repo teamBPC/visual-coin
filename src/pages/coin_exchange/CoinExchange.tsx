@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import ExchangeCharts from "./ExchangeCharts";
-import { fetchEchangeChart } from "../../datalist";
+import { exchangeChartData, fetchExchangeChart } from "../../datalist";
 import { useQuery } from "@tanstack/react-query";
 import { IExchangeChart } from "../../interface/iExchangeChart";
 
@@ -35,11 +35,10 @@ const SeletedCoin = styled.div`
   font-size: 22px;
 `;
 function CoinExchange() {
-  const { data: exchangeChartData } = useQuery<IExchangeChart[]>(
-    ["echangeChart"],
-    fetchEchangeChart
-  );
-
+  // const { data: exchangeChartData } = useQuery<IExchangeChart[]>(
+  //   ["echangeChart"],
+  //   fetchExchangeChart
+  // );
   return (
     <CoinExchangeContainer>
       <CoinExchangeInner>

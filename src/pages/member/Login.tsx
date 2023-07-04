@@ -19,7 +19,8 @@ const LoginInput = styled.input`
   font-size: 1.1rem;
   border-radius: 5px;
   outline: none;
-  transition: border 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  transition: border 0.3s ease-in-out;
+  will-change: border;
   &:focus {
     border: 1px solid ${(props) => props.theme.inputFocusBdColor};
   }
@@ -37,6 +38,7 @@ const LoginButton = styled.button`
   border: none;
   cursor: pointer;
   color: ${(props) => props.theme.btnTextColor};
+  will-change: color, opacity;
   transition: opacity 0.2s ease-in-out;
   &:hover {
     opacity: 0.6;

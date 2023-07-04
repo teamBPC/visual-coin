@@ -7,6 +7,7 @@ const ChartComponent = (props: IChartData) => {
   const isDarkMode = useSelector(
     (state: { toggleMode: boolean }) => state.toggleMode
   );
+
   const { data } = props.chartData;
 
   const chartContainerRef = useRef<HTMLDivElement>(null);
@@ -56,7 +57,7 @@ const ChartComponent = (props: IChartData) => {
           color: isDarkMode ? "rgba(255, 255, 255, 0.7)" : "rgba(2, 2, 2, 0.7)",
         },
       },
-      width: chartContainerRef.current?.clientWidth ?? 0,
+      width: (chartContainerRef.current?.clientWidth ?? 0) - 16,
       height: 450,
     });
     chart.timeScale().fitContent();

@@ -4,7 +4,7 @@ import FilterCategory from "./common/FilterCategory";
 import FilterMarketCap from "./common/FilterMarketCap";
 import FilterChange from "./common/FilterChange";
 
-function SelectMyPageInvest() {
+function SelectMyPageSubscribe() {
   return (
     <SelectWrapperUl>
       <SelectWrapperLi>
@@ -23,4 +23,4 @@ function SelectMyPageInvest() {
   );
 }
 
-export default SelectMyPageInvest;
+export default SelectMyPageSubscribe;
