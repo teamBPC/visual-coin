@@ -5,6 +5,7 @@ module.exports = {
   snapshotSerializers: ['jest-image-snapshot/serializer'],
   transform: {
     "^.+\\.(js|jsx|ts|tsx)$": "ts-jest",
+    '^.+\\.tsx?$': 'babel-jest',
   },
   moduleNameMapper: {
     "^src/(.*)$": "<rootDir>/src/$1",
