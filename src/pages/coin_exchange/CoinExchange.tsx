@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import ExchangeCharts from "./ExchangeCharts";
-import { exchangeChartData } from "../../datalist";
+import { exchangeChartData } from "../../api/datalist";
 
 const CoinExchangeContainer = styled.div``;
 const CoinExchangeInner = styled.div`
