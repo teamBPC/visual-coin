@@ -1,4 +1,4 @@
-import { IContentItemData } from "./interface/iMyPage";
+import { IContentItemData } from "../interface/iMyPage";
 
 export const myPageSubscribeDatas: IContentItemData[] = [
   {
