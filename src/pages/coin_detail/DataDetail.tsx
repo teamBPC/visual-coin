@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import styled from "styled-components";
 import { useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 
 const DataDetailContainer = styled.div``;
 const DataDetailInner = styled.div`
@@ -8,6 +10,10 @@ const DataDetailInner = styled.div`
 `;
 
 function DataDetail() {
+  const isDarkMode = useSelector(
+    (state: { toggleMode: boolean }) => state.toggleMode
+  );
+  const { pathname } = useLocation();
   let tvScriptLoadingPromise: Promise<void>;
   const onLoadScriptRef = useRef<(() => void) | null>();
 
@@ -33,7 +39,7 @@ function DataDetail() {
     return () => {
       onLoadScriptRef.current = null;
     };
-  }, []);
+  }, [isDarkMode]);
 
   function createWidget(): void {
     if (
@@ -42,13 +48,13 @@ function DataDetail() {
     ) {
       new window.TradingView.widget({
         autosize: true,
-        symbol: "BINANCE:ETCUSDT",
+        symbol: pathname.slice(13),
         interval: "D",
         timezone: "Asia/Seoul",
-        theme: "light",
+        theme: isDarkMode ? "dark" : "light",
         style: "1",
         locale: "kr",
-        toolbar_bg: "#fff",
+        toolbar_bg: isDarkMode ? "#000" : "#fff",
         enable_publishing: false,
         allow_symbol_change: false,
         hide_side_toolbar: false,

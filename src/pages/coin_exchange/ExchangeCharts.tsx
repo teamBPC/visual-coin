@@ -1,8 +1,13 @@
 import { createChart, ColorType } from "lightweight-charts";
 import { useEffect, useRef } from "react";
 import { IChartData } from "../../interface/iExchangeChart";
+import { useSelector } from "react-redux";
 
 const ChartComponent = (props: IChartData) => {
+  const isDarkMode = useSelector(
+    (state: { toggleMode: boolean }) => state.toggleMode
+  );
+
   const { data } = props.chartData;
 
   const chartContainerRef = useRef<HTMLDivElement>(null);
@@ -15,8 +20,11 @@ const ChartComponent = (props: IChartData) => {
 
     const chart = createChart(chartContainerRef.current!, {
       layout: {
-        background: { type: ColorType.Solid, color: "#efefef" },
-        textColor: "#000",
+        background: {
+          type: ColorType.Solid,
+          color: isDarkMode ? "#3b3b3b" : "#fff",
+        },
+        textColor: isDarkMode ? "#fff" : "#222",
       },
       rightPriceScale: {
         scaleMargins: {
@@ -29,7 +37,7 @@ const ChartComponent = (props: IChartData) => {
         borderVisible: false,
       },
       watermark: {
-        color: "rgba(2, 2, 2, 1)",
+        color: "rgba(255, 255, 255,1)",
       },
       grid: {
         vertLines: {
@@ -42,22 +50,22 @@ const ChartComponent = (props: IChartData) => {
       crosshair: {
         vertLine: {
           visible: true,
-          color: "rgba(2, 2, 2, 0.7)",
+          color: isDarkMode ? "rgba(255, 255, 255, 0.7)" : "rgba(2, 2, 2, 0.7)",
         },
         horzLine: {
           visible: true,
-          color: "rgba(2, 2, 2, 0.7)",
+          color: isDarkMode ? "rgba(255, 255, 255, 0.7)" : "rgba(2, 2, 2, 0.7)",
         },
       },
-      width: chartContainerRef.current?.clientWidth ?? 0,
+      width: (chartContainerRef.current?.clientWidth ?? 0) - 16,
       height: 450,
     });
     chart.timeScale().fitContent();
 
     const newSeries = chart.addAreaSeries({
-      topColor: "rgba(19, 68, 193, 0.4)",
-      bottomColor: "rgba(0, 120, 255, 0.0)",
-      lineColor: "rgba(19, 40, 153, 1.0)",
+      topColor: isDarkMode ? "rgba(150, 0, 0, 0.4)" : "rgba(19, 68, 193, 0.4)",
+      bottomColor: isDarkMode ? "rgba(2, 2, 2, 0.0)" : "rgba(0, 120, 255, 0.0)",
+      lineColor: isDarkMode ? "rgba(150, 0, 0, 1.0)" : "rgba(19, 40, 153, 1.0)",
       lineWidth: 3,
     });
     newSeries.setData(data);
@@ -71,7 +79,7 @@ const ChartComponent = (props: IChartData) => {
         chart.remove();
       }
     };
-  }, [data]);
+  }, [data, isDarkMode]);
 
   return <div ref={chartContainerRef} />;
 };

@@ -6,5 +6,15 @@ declare module "styled-components" {
     bgColor: string;
     cardColor: string;
     textColor: string;
+    labelColor: string;
+    inputBdColor: string;
+    inputTextColor: string;
+    inputFocusBdColor: string;
+    btnBgColor: string;
+    btnTextColor: string;
+    btnHoberBgColor: string;
+    memberActiveBoxBgColor: string;
+    memberTabTextColor: string;
+    memberTabBdColor: string;
   }
 }

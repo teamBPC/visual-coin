@@ -1,10 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import styled from "styled-components";
-import { fetchCoins } from "../../datalist";
+import { fetchCoins } from "../../api/datalist";
 import { ICoin } from "../../interface/iCoinList";
 import { Link } from "react-router-dom";
 
-const CoinDataContainer = styled.div``;
+const CoinDataContainer = styled.div`
+  margin-top: 0.5rem;
+`;
 
 const CoinDataInner = styled.header`
   display: flex;
@@ -19,7 +21,8 @@ const CoinsList = styled.ul`
 `;
 const Coin = styled.li`
   background-color: ${(props) => props.theme.cardColor};
-  border-radius: 5px;
+  will-change: background-color;
+  border-radius: 8px;
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.15);
   padding: 0.5rem 1rem;
 `;
@@ -41,14 +44,16 @@ function CoinData() {
   return (
     <CoinDataContainer>
       <CoinDataInner>
-        <SelectBox></SelectBox>
+        <SelectBox />
         <ListBox>
           <CoinsList>
             {data?.slice(0, 100).map((coin) => (
               <Coin key={coin.id}>
-                <GoDetail to={`/${coin.id}`} state={{ name: coin.name }}>
+                <GoDetail to={`/coin-detail/BINANCE:${coin.symbol}USDT`}>
                   <Img
                     src={`https://cryptocurrencyliveprices.com/img/${coin.id}.png`}
+                    loading="lazy"
+                    decoding="async"
                   />
                   <CoinName>{coin.name}</CoinName>
                 </GoDetail>
