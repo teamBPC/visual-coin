@@ -12,6 +12,7 @@ function FilterExchange() {
     setSelectedValue(event.target.value);
     fliterExchangeApi(event.target.value);
   };
+
   return (
     <Select value={selectedValue} onChange={handleSelectChange}>
       {optionExchange.map((list) => (
