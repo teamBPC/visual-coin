@@ -531,7 +531,7 @@ export const exchangeChartData = [
     ],
   },
   {
-    exchange: "upbit",
+    exchange: "binance",
     history: [
       { time: "2016-07-18", value: 661.47 },
       { time: "2016-07-25", value: 623.83 },
