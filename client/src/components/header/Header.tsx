@@ -20,6 +20,7 @@ const Logo = styled.div`
 function Header() {
   const { pathname } = useLocation();
 
+  if (pathname === "/") return null;
   return (
     <>
       <HeaderContainer>
